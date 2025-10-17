@@ -1,0 +1,69 @@
+#set page(
+  header: [
+    #set text(10pt)
+    #grid(
+      columns: (1fr, 1fr, 1fr),
+      align: (left, center, right),
+      [LEPL1401 - NAME],
+      [Corrigé par AUTHOR],
+      [DATE]
+    )
+    #line(length: 100%, stroke: 0.5pt)
+  ],
+  margin: (x: 2cm, y: 2cm)
+)
+
+#align(center)[
+= Feedback
+#v(1em)
+
+#let symbol_not_submitted = emoji.crossmark
+#let symbol_good = emoji.checkmark.box
+#let symbol_perfect = emoji.star.glow
+#let symbol_what = emoji.quest
+
+#let display_students(students, num_columns) = {
+  let per_column = calc.ceil(students.len() / num_columns)
+  
+  columns(num_columns)[
+    #for (i, student) in students.enumerate() [
+      *#student.name* #student.symbol
+      
+      #if calc.rem(i + 1, per_column) == 0 and i != students.len() - 1 [
+        #colbreak()
+      ]
+    ]
+  ]
+}
+
+#let students = (
+//ADD_STUDENTS_HERE
+)
+
+
+#display_students(students, 4)
+
+#v(1em)
+
+#set list(marker: none)
+*Légende :*
+- #symbol_good Bien avec une petite erreur
+- #symbol_perfect Parfait
+]
+#set list(marker: "-")
+
+= Quelques petits codes
+#show raw.where(block: true): block.with(
+  fill: luma(240),
+  inset: 10pt,
+  radius: 4pt,
+  stroke: 1pt + luma(200)
+)
+
+// ADD_CODES_HERE
+
+
+
+= Remarques générales
+
+//FEEDBACK
