@@ -1,8 +1,3 @@
-# Générateur de feedback LEPL1401
-
-Ce script génère un document unique et imprimable contenant le feedback d'une
-mission LEPL1401.
-
 ## Fonctionnalités
 
 - Résume les résultats des étudiants dans une liste sur quatre colonnes.
